@@ -12,9 +12,6 @@ def fetch_historical_data(symbols, start_date, end_date):
         symbols (list): List of symbols to fetch data for.
         start_date (str): Start date in 'YYYY-MM-DD' format.
         end_date (str): End date in 'YYYY-MM-DD' format.
-
-    Returns:
-        pandas.DataFrame: DataFrame containing the historical price data for the symbols.
     """
     data = yf.download(symbols, start=start_date, end=end_date)
     return data["Close"]
@@ -22,15 +19,12 @@ def fetch_historical_data(symbols, start_date, end_date):
 
 def generate_correlation_heatmap(symbols, start_date, end_date):
     """
-    Generates a correlation heatmap of the given symbols' price data using Seaborn and Matplotlib.
+    Generates a correlation heatmap of the given symbols' price data
 
     Args:
         symbols (list): List of symbols to generate the heatmap for.
         start_date (str): Start date in 'YYYY-MM-DD' format.
         end_date (str): End date in 'YYYY-MM-DD' format.
-
-    Returns:
-        None
     """
     # Fetch historical price data for the symbols
     data_frame = fetch_historical_data(symbols, start_date, end_date)
